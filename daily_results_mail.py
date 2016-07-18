@@ -108,7 +108,7 @@ def _get_change_list(start_build,end_build,version_no):
         for v in val:
             ret1 += (v['message'])[0:75] + "----"
             ret1 += v['repo'] + "---"
-            ret1 += v['fixes'] + "---"
+            ret1 += str(''.join(v['fixes'])) + "---"
             ret1 += v['committer']['name'] + "---" + "<br>"
     ret1 += "<br>"
     return ret1
