@@ -118,10 +118,11 @@ def _get_change_list(start_build,end_build,version_no):
 def _send_email(current_build,lastbuild,secondlastbuild,version_number,password):
     from_email = 'ritamcouchbase@gmail.com'
     to_email = 'ritam@couchbase.com'
+    email_recipients = ['ritam@couchbase.com','raju@couchbase.com','hari.kodungallur@couchbase.com']
     msg = MIMEMultipart('alternative')
     msg['Subject'] = 'Test Subject'
     msg['From'] = from_email
-    msg['To'] = to_email
+    msg['To'] = ",".join(email_recipients)
 
     html = """\
     <html>
@@ -144,7 +145,7 @@ def _send_email(current_build,lastbuild,secondlastbuild,version_number,password)
     server.ehlo()
     server.starttls()
     server.login('ritamcouchbase@gmail.com', password)
-    server.sendmail(from_email, to_email, msg.as_string())
+    server.sendmail(from_email, email_recipients, msg.as_string())
     server.quit()
 
 
