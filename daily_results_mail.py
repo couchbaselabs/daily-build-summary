@@ -118,7 +118,7 @@ def _get_change_list(start_build,end_build,version_no):
 def _send_email(current_build,lastbuild,secondlastbuild,version_number,password):
     from_email = 'ritamcouchbase@gmail.com'
     to_email = 'ritam@couchbase.com'
-    email_recipients = ['ritam@couchbase.com','raju@couchbase.com','hari.kodungallur@couchbase.com']
+    email_recipients = ['ritam@couchbase.com']
     msg = MIMEMultipart('alternative')
     msg['Subject'] = 'Test Subject'
     msg['From'] = from_email
