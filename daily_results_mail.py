@@ -213,7 +213,7 @@ def _construct_email_body(current_build,lastbuild,secondlastbuild,version_number
 
 def _send_email(current_build,last_build,sec_last_build,version_number,password):
     from_email = 'ritamcouchbase@gmail.com'
-    to_email = 'ritamcouchbase@gmail.com'
+    to_email = 'ritam@couchbase.com'
     email_body = ''
     email_recipients = ['ritamcouchbase@gmail.com']
     msg = MIMEMultipart('alternative')
@@ -263,7 +263,7 @@ def main(argv):
     last_build_list = []
     build_before_last_list = []
     release_no = current_build.split("-")[0]
-    conn = _sdk_connection(bucket='default', host_ip="172.23.121.131")
+    conn = _sdk_connection(bucket='server', host_ip="172.23.121.131")
     today_date = datetime.date.today()
 
     set_build_number(conn,release_no,current_build,today_date)
