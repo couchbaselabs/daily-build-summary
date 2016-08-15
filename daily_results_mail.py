@@ -166,13 +166,12 @@ def _construct_email_body(current_build,lastbuild,secondlastbuild,version_number
     temp = "<h1> Today Daily Build - {0} </h1>".format(current_build)
     for i in range(0, len(lastbuild)):
         if (lastbuild[i].split("-")[0]) == version_number:
-            temp += "<h1> Commit Between Build - {1} - {2} </h1> """.format(current_build,
-                                                                            lastbuild,
-                                                                            current_build) + \
+            temp += "<h1> Commit Between Build - {0} - {1} </h1> """.format(current_build,
+                                                                            lastbuild[i]) + \
                    _get_change_list(lastbuild[i], current_build, version_number) + \
                    " <br> <br>"
 
-        temp += " <h1> TestResults for Build and Build </h1> <div> " + \
+        temp += " <h1> TestResults for Build - {0} and Build - {1} </h1> <div> ".format(lastbuild[i],secondlastbuild[i]) + \
                 "<p>" +\
                    _construct_build_results_body(version_number, lastbuild[i]) + "" + \
                    _construct_build_results_body(version_number, secondlastbuild[i]) + \
