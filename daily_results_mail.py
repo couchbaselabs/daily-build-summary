@@ -214,7 +214,7 @@ def _send_email(current_build,last_build,sec_last_build,version_number,password)
     from_email = 'ritamcouchbase@gmail.com'
     to_email = 'ritam@couchbase.com'
     email_body = ''
-    email_recipients = ['ritamcouchbase@gmail.com']
+    email_recipients = ['ritam@couchbase.com','raju@couchbase.com']
     msg = MIMEMultipart('alternative')
     msg['Subject'] = 'Daily Run Result'
     msg['From'] = from_email
