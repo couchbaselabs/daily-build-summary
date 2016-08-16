@@ -171,7 +171,7 @@ def _construct_email_body(current_build,lastbuild,secondlastbuild,version_number
                    _get_change_list(lastbuild[i], current_build, version_number) + \
                    " <br> <br>"
 
-        temp += " <h1> TestResults for Build - {0} and Build - {1} </h1> <div> <div style='float:left; width:100%'>".format(lastbuild[i],secondlastbuild[i]) + \
+        temp += "<div> <div style='float:left; width:100%'>  <h1> TestResults for Build - {0} and Build - {1} </h1>".format(lastbuild[i],secondlastbuild[i]) + \
                 "<p>" +\
                    _construct_build_results_body(version_number, lastbuild[i]) + "" + \
                    _construct_build_results_body(version_number, secondlastbuild[i]) + \
