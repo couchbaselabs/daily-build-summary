@@ -142,7 +142,7 @@ def _get_change_list(start_build,end_build,version_number):
                     temp = detail_repo[v['repo']]
                     detail_repo[v['repo']] = temp + v['message'][0:75] + "----" + v['committer']['name'] + "<br>"
 
-        changes_body = "<p><table border='1'style='float: left' cellpadding='5' cellspacing='5'>"
+        changes_body = "<table border='1'style='float: left' cellpadding='5' cellspacing='5'>"
         changes_body = changes_body + \
                       "<tr> " + \
                       "<td colspan='2'> Changes between Build Number : {0} - {1}</td>".format(version_number + "-" + start_build, version_number + "-" + end_build) + \
@@ -157,7 +157,7 @@ def _get_change_list(start_build,end_build,version_number):
                            "<td>" + top_repo[i] + "</td>" + \
                            "<td>" + detail_repo[top_repo[i]] + "</td>" + \
                             "</tr>"
-        changes_body += "</table><br><br></p>"
+        changes_body += "</table>"
         return changes_body
     return " "
 
@@ -171,7 +171,7 @@ def _construct_email_body(current_build,lastbuild,secondlastbuild,version_number
                    _get_change_list(lastbuild[i], current_build, version_number) + \
                    " <br> <br>"
 
-        temp += " <h1> TestResults for Build - {0} and Build - {1} </h1> <div> ".format(lastbuild[i],secondlastbuild[i]) + \
+        temp += " <h1> TestResults for Build - {0} and Build - {1} </h1> <div> <div style='float:left; width:100%'>".format(lastbuild[i],secondlastbuild[i]) + \
                 "<p>" +\
                    _construct_build_results_body(version_number, lastbuild[i]) + "" + \
                    _construct_build_results_body(version_number, secondlastbuild[i]) + \
