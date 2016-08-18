@@ -214,7 +214,7 @@ def _send_email(current_build,last_build,sec_last_build,version_number,password)
     from_email = 'ritamcouchbase@gmail.com'
     to_email = 'ritam@couchbase.com'
     email_body = ''
-    email_recipients = ['ritam@couchbase.com','raju@couchbase.com']
+    email_recipients = ['ritam@couchbase.com','raju@couchbase.com','ritamcouchbase@gmail.com']
     msg = MIMEMultipart('alternative')
     msg['Subject'] = 'Daily Run Result'
     msg['From'] = from_email
@@ -233,7 +233,7 @@ def _send_email(current_build,last_build,sec_last_build,version_number,password)
 def set_build_number(conn,version_no,build_number,build_date):
     if calendar.day_name[build_date.weekday()] == "Thursday":
         conn.upsert(str(build_date) + ":" + str(version_no), {'build_no': build_number,"run_type":"weekly"})
-        conn.upsert("weekly_build" + "-" + version_no),{'build_no':build_number}
+        conn.upsert("weekly_build" + "-" + str(version_no),{'build_no':build_number})
     else:
         conn.upsert(str(build_date)+ ":" + str(version_no), {'build_no': build_number, "run_type": "daily"})
 
