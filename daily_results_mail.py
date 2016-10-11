@@ -184,7 +184,6 @@ def _construct_email_body(current_build,lastbuild,secondlastbuild,version_number
          </body>
        </html>
        """
-    print html
     return html
 
 '''
